@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from './Card.jsx';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -14,28 +15,39 @@ export default class App extends Component {
 
     static renderArticlesTable(articles) {
         return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Summary</th>
-                        <th>Link</th>
-                        <th>Published</th>
-                        <th>Topic</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {articles.map(article =>
-                        <tr key={article.title}>
-                            <td>{article.title}</td>
-                            <td>{article.summary}</td>
-                            <td><a href={article.link} target="_blank" rel="noopener noreferrer">{article.link}</a></td>
-                            <td>{article.published}</td>
-                            <td>{article.topic.join(", ")}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+
+
+            <div className="row">
+            <div className="col-md-8">
+                    <div className="row">
+
+                    {articles.map(article => (<Card
+                        key={article.title}
+                        title={article.title}
+                        link={article.link}
+                        published={article.published}
+                        summary={article.summary}
+                    />
+                    ))}
+                                
+                    </div>
+                </div>
+                <div className="col">
+                    {articles.map(article => (<Card
+                        key={article.title}
+                        title={article.title}
+                        link={article.link}
+                        published={article.published}
+                        summary={article.summary}
+                    />
+                    ))}
+                </div>
+            </div>
+            
+                
+           
+
+ 
         );
     }
 
