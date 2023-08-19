@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Card({ title, summary, published, topic }) {
+function Card({ title, summary, published, topic, link }) {
     return (
         <div className="col-md-6">
             <div className="card mb-4">
@@ -9,6 +9,7 @@ function Card({ title, summary, published, topic }) {
                     <p className="card-text">{summary}</p>
                     <p className="card-title">{published}</p>
                     <p className="card-text">{topic}</p>
+                    <a href={link}><p className="card-text">Link to article</p> </a>
                 </div>
             </div>
         </div>
