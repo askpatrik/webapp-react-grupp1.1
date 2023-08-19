@@ -8,8 +8,9 @@ import QuoteRandomizer from './QuoteRandomizer.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <Carousel />
+        
         <App />
+        <Carousel />
         <QuoteRandomizer />
         
   </React.StrictMode>,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card.jsx';
+import CSS from './App.css';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -16,33 +17,36 @@ export default class App extends Component {
     static renderArticlesTable(articles) {
         return (
 
-
-            <div className="row">
-            <div className="col-md-8">
-                    <div className="row">
-
-                    {articles.map(article => (<Card
-                        key={article.title}
-                        title={article.title}
-                        link={article.link}
-                        published={article.published}
-                        summary={article.summary}
-                    />
-                    ))}
-                                
+          
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-8">
+                        <div className="row">
+                            {articles.map(article => (
+                                <Card
+                                    key={article.title}
+                                    title={article.title}
+                                    link={article.link}
+                                    published={article.published}
+                                    summary={article.summary}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        {articles.map(article => (
+                            <Card
+                                key={article.title}
+                                title={article.title}
+                                link={article.link}
+                                published={article.published}
+                                summary={article.summary}
+                            />
+                        ))}
                     </div>
                 </div>
-                <div className="col">
-                    {articles.map(article => (<Card
-                        key={article.title}
-                        title={article.title}
-                        link={article.link}
-                        published={article.published}
-                        summary={article.summary}
-                    />
-                    ))}
-                </div>
             </div>
+
             
                 
            
