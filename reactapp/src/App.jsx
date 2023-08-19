@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from './Card.jsx';
 import CSS from './App.css';
-
+import Carosel from './CommercialCarousel.jsx';
 export default class App extends Component {
     static displayName = App.name;
 
@@ -18,9 +18,10 @@ export default class App extends Component {
         return (
 
           
-            <div className="container-fluid">
+            <div className="app-container">
+      
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-8">
                         <div className="row">
                             {articles.map(article => (
                                 <Card
@@ -32,8 +33,11 @@ export default class App extends Component {
                                 />
                             ))}
                         </div>
+                        <Carosel />
+
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-4">
+                    <div className="row">
                         {articles.map(article => (
                             <Card
                                 key={article.title}
@@ -43,8 +47,9 @@ export default class App extends Component {
                                 summary={article.summary}
                             />
                         ))}
+                        
                     </div>
-                </div>
+                    </div></div>
             </div>
 
             
@@ -62,8 +67,8 @@ export default class App extends Component {
 
         return (
             <div>
-                <h1 id="tabelLabel">Article List</h1>
-                <p>This component demonstrates fetching data from the server.</p>
+                <h1 id="articleRubrik">Article List</h1>
+                <p></p>
                 {contents}
             </div>
         );

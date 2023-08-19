@@ -1,4 +1,5 @@
 import React from 'react';
+import CSS from './App.css';
 
 function Card({ title, summary, published, topic, link }) {
     return (
