@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.jsx';
 import CSS from './App.css';
 import Carosel from './CommercialCarousel.jsx';
+import Weather from './WeatherForecast.jsx'
 export default class App extends Component {
     static displayName = App.name;
 
@@ -34,6 +35,7 @@ export default class App extends Component {
                             ))}
                         </div>
                         <Carosel />
+                        <Weather />
 
                     </div>
                     <div className="col-4">
