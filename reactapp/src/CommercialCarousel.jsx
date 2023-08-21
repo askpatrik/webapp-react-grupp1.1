@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Bild from './Images/svtbild.png';
+import Bild from './Images/adicon.png';
 
 const Carousel = () => {
     const [animationPaused, setAnimationPaused] = useState(false);

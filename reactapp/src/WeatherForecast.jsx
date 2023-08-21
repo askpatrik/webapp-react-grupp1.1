@@ -18,7 +18,7 @@ const Weather = () => {
     return (
         <div>
             <h1>Weather in {weatherData.name}</h1>
-            <h2>{Math.round(weatherData.main.temp - 273.15)}°C</h2>
+            <h2>{Math.round(weatherData.main.temp - 273.15)} degrees celcius</h2>
             <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt="weather icon" />
             <p>{weatherData.weather[0].description}</p>
         </div>

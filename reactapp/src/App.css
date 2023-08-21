@@ -1,7 +1,7 @@
 /* styles.css */
 
 .app-container{
-   margin: 0px 300px 0px 300px;
+   margin: 0px 500px 0px 500px;
 }
 .card-body {
     border: 1px solid #ccc;
@@ -55,5 +55,14 @@
     margin: 0px 300px 0px 300px;
     
 }
-
+.card-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+}
 }
