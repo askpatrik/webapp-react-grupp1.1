@@ -3,6 +3,7 @@ import Card from './Card.jsx';
 import CSS from './App.css';
 import Carosel from './CommercialCarousel.jsx';
 import Weather from './WeatherForecast.jsx'
+import Header from './Header';
 export default class App extends Component {
     static displayName = App.name;
 
@@ -22,6 +23,7 @@ export default class App extends Component {
             <div className="app-container">
       
                 <div className="row">
+                    <Header />
                     <div className="col-8">
                         <div className="row">
                             {articles.map(article => (

@@ -7,9 +7,9 @@ import Carousel from './CommercialCarousel.jsx'
 import QuoteRandomizer from './QuoteRandomizer.jsx'
 import Weather from './WeatherForecast.jsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        
         <App />
         <Weather />
         <QuoteRandomizer />
