@@ -3,7 +3,8 @@ import Card from './Card.jsx';
 import CSS from './App.css';
 import Carosel from './CommercialCarousel.jsx';
 import Weather from './WeatherForecast.jsx'
-import Header from './Header';
+import img from './Images/breakingnews.jpg';
+import QuoteRandomizer from './QuoteRandomizer.jsx';
 export default class App extends Component {
     static displayName = App.name;
 
@@ -21,9 +22,36 @@ export default class App extends Component {
 
           
             <div className="app-container">
+                <div className="row">
+                    <div className="col-8">
+                    <div className="card-container">
+                    <h1>SENASTE NYTT</h1>
+                        <Card
+                            key={articles[0].title} // Assuming you want to display the first article
+                            title={articles[0].title}
+                            link={articles[0].link}
+                            published={articles[0].published}
+                            summary={articles[0].summary}
+                         
+                            />
+
+                        </div>                    
+                    </div>
+                    <div className="col-4">
+                        <div className="card-container">
+                        <h1>(weather api)</h1>
+                        <Weather />
+                        </div>
+                    
+                       </div>
+                 </div>
+                   
+               
+                
+             
+             
       
                 <div className="row">
-                    <Header />
                     <div className="col-8">
                         <div className="row">
                             {articles.map(article => (
@@ -35,9 +63,10 @@ export default class App extends Component {
                                     summary={article.summary}
                                 />
                             ))}
+                            <Carosel />
                         </div>
-                        <Carosel />
-                        <Weather />
+                       
+                    
 
                     </div>
                     <div className="col-4">
@@ -51,9 +80,11 @@ export default class App extends Component {
                                 summary={article.summary}
                             />
                         ))}
+                            <QuoteRandomizer />
                         
                     </div>
-                    </div></div>
+                    </div> </div>
+              
             </div>
 
             
@@ -71,7 +102,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <h1 id="articleRubrik">Article List</h1>
+              
                 <p></p>
                 {contents}
             </div>
