@@ -1,8 +1,10 @@
+
 import React from 'react';
 import './Header.css';
 import logo from './images/MVCN.png';
-
-
+import Weather from './WeatherForecast';
+import Carosel from './CommercialCarousel';
+import css from './App.css';
 
 function Header() {
 
@@ -14,11 +16,12 @@ function Header() {
 
     };
     return (
-     
+        <div className="row">
+
+            <div className="col-12">
         <header className="Header">
-            <div className="logo">
-                <img src={logo} alt="Logo"/>
-                </div>
+
+           
             <nav className="nav-links">
                 <ul className="nav-list">
                     {Object.keys(topicDisplayNames).map(topic => (
@@ -31,7 +34,8 @@ function Header() {
                 </ul>
             </nav>
            
-        </header>
+                </header>
+        </div> </div>
     );
 }
 

@@ -8,6 +8,7 @@ import Weather from '../../WeatherForecast.jsx'
 import img from '../../Images/breakingnews.jpg';
 import QuoteRandomizer from '../../QuoteRandomizer.jsx';
 import Header from '../../Header.jsx'
+import logo from '../../images/MVCN.png';
 
 // In order to use react hooks like the `useCookies` hook, the must use functional components.
 // Functional components are the industry standard for the react components at the moment.
@@ -30,9 +31,10 @@ const Articles = () => {
 
     const renderArticlesTable = (articles) => {
         return (
+ 
             <div className="app-container">
                 <div className="row">
-                    <Header />
+                   
                     <div className="col-8">
                         
                           
@@ -49,13 +51,13 @@ const Articles = () => {
                     </div>
                     <div className="col-4">
                         <div className="card-container">
-                            <Weather />
-                            <Carosel />
+                             <img className="resize" src={logo} alt="Logo"/>
                            
                         </div>
 
                     </div>
-                </div>
+                    </div>
+      
 
 
 
@@ -74,7 +76,7 @@ const Articles = () => {
                                     summary={article.summary}
                                 />
                             ))}
-                           
+                            <Weather /> <Carosel />
                         </div>
 
 
