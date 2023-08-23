@@ -1,7 +1,7 @@
 /* styles.css */
 
 .app-container{
-   margin: 0 400px 0 400px;
+   margin: auto;
 }
 .card-body {
     border: 1px solid #ccc;
