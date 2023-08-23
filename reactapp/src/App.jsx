@@ -5,6 +5,7 @@ import Carosel from './CommercialCarousel.jsx';
 import Weather from './WeatherForecast.jsx'
 import img from './Images/breakingnews.jpg';
 import QuoteRandomizer from './QuoteRandomizer.jsx';
+import Header from './Header.jsx'
 export default class App extends Component {
     static displayName = App.name;
 
@@ -23,6 +24,7 @@ export default class App extends Component {
           
             <div className="app-container">
                 <div className="row">
+                <Header />
                     <div className="col-8">
                     <div className="card-container">
                     <h1>SENASTE NYTT</h1>
