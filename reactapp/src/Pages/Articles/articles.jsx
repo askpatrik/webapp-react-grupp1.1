@@ -100,7 +100,7 @@ const Articles = () => {
 
     return (
         <div>
-            <h1 id="tabelLabel">Article List</h1>
+            
             {loading
                 ? <p><em>Loading...</em></p>
                 : renderArticlesTable(articles)}
