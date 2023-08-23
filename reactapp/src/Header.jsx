@@ -14,6 +14,7 @@ function Header() {
 
     };
     return (
+     
         <header className="Header">
             <div className="logo">
                 <img src={logo} alt="Logo"/>
@@ -29,6 +30,7 @@ function Header() {
                     ))}
                 </ul>
             </nav>
+           
         </header>
     );
 }
