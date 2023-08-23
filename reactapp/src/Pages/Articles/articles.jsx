@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import Card from '../../Card.jsx';
-import CSS from './App.css';
+import BigCard from '../../MainArticleCard.jsx';
+import CSS from '../../App.css';
 import Carosel from '../../CommercialCarousel.jsx';
 import Weather from '../../WeatherForecast.jsx'
 import img from '../../Images/breakingnews.jpg';
@@ -33,9 +34,9 @@ const Articles = () => {
                 <div className="row">
                     <Header />
                     <div className="col-8">
-                        <div className="card-container">
-                            <h1>SENASTE NYTT</h1>
-                            <Card
+                        
+                          
+                            <BigCard
                                 key={articles[0].title} // Assuming you want to display the first article
                                 title={articles[0].title}
                                 link={articles[0].link}
@@ -44,12 +45,13 @@ const Articles = () => {
 
                             />
 
-                        </div>
+                   
                     </div>
                     <div className="col-4">
                         <div className="card-container">
-                            <h1>(weather api)</h1>
                             <Weather />
+                            <Carosel />
+                           
                         </div>
 
                     </div>
@@ -72,7 +74,7 @@ const Articles = () => {
                                     summary={article.summary}
                                 />
                             ))}
-                            <Carosel />
+                           
                         </div>
 
 

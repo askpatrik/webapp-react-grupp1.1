@@ -4,7 +4,7 @@ import CSS from './App.css';
 function Card({ title, summary, published, topic, link}) {
     return (
         <div className="col-md-6">
-            <div className="card mb-4">
+            <div className="card mb-4 border-0">
           
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>

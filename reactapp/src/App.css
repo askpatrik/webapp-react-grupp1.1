@@ -1,10 +1,14 @@
 /* styles.css */
 
-.app-container{
-   margin:auto;
+.app-container {
+    margin: 0 auto;
+    margin-right: 500px;
+    margin-left: 500px;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 .card-body {
-    border: 1px solid #ccc;
+  
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
     background-color: #f5f5f5; /* Light gray background */
@@ -44,6 +48,7 @@
 
 .card-body {
     padding: 1.5rem;
+    overflow: hidden;
 }
 #articleRubrik {
     background-color: #f5f5f5; /* Light gray background */
@@ -56,7 +61,6 @@
     
 }
 .card-container {
-    border: 1px solid #ccc;
     padding: 15px;
     margin-bottom: 15px;
     height: 400px;
@@ -64,5 +68,44 @@
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
+    overflow: hidden;
+}
+.big-card-container {
+    display: flex;
+   
+    justify-content: center; /* Center the card horizontally */
+    align-items: center; /* Center the card vertically */
+    height: 400px; /* Set a fixed height for the container */
+    overflow: hidden; /* Overflow property to prevent content from expanding outside the container */
+}
+
+.big-card {
+    width: 100%; /* Make the card fill the entire width of the container */
+    height: 100%; /* Make the card fill the entire height of the container */
+    display: flex; /* Use flex display to control the card's content within the container */
+ 
+}
+.big-card-title {
+
+    font-size: 55px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+.big-card-text {
+    font-size: 29px;
+    color: #666;
+}
+.banner {
+ 
+ 
+ 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
 }
 }
