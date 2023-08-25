@@ -1,0 +1,21 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.footer-content {
+    position: relative;
+}
+
+.footer-logo {
+    
+    width: 60px; /* Adjust the width as needed */
+    height: auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
