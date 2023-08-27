@@ -1,0 +1,67 @@
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+    .centered-container h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .centered-container form {
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .centered-container label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .centered-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+
+    .centered-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+        .centered-container button:hover {
+            background-color: #0056b3;
+        }
+
+    .centered-container a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+        .centered-container a:hover {
+            color: #0056b3;
+        }

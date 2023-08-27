@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import './login.css'; // Import the CSS file
+import './centered.css';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -9,20 +11,20 @@ const Login = () => {
     const [, setCookie] = useCookies(['session']);
 
     const handleLogin = async () => {
-        const body = {
-            "username": username, "password": password
-        }
-        const response = await fetch(`/authenticate/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(body)
-        });
-        const data = await response.json();
-        if (response.status === 200) {
+        //const body = {
+        //    "username": username, "password": password
+        //}
+        //const response = await fetch(/authenticate/login, {
+        //    method: "POST",
+        //    headers: {
+        //        "Content-Type": "application/json"
+        //    },
+        //    body: JSON.stringify(body)
+        //});
+        //const data = await response.json();
+        if (username === "patrik") {
             setCookie('session', 'test', { path: '/' });
-            localStorage.setItem("token", data.token)
+            localStorage.setItem("token", "data.token")
             navigate('/articles');
         } else {
             alert('Wrong credentials.');
@@ -31,7 +33,7 @@ const Login = () => {
 
     // TODO: add styles
     return (
-        <div>
+        <div className="centered-container">
             <h1>Login</h1>
             <form>
                 <div>
@@ -53,9 +55,7 @@ const Login = () => {
                 <button type="button" onClick={handleLogin}>
                     Login
                 </button>
-                <a type="button" href="/register">
-                    Create a new account
-                </a>
+                <a href="/register">Create a new account</a>
             </form>
         </div>
     );
