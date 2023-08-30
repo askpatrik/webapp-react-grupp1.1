@@ -9,6 +9,7 @@ import img from '../../Images/breakingnews.jpg';
 import QuoteRandomizer from '../../QuoteRandomizer.jsx';
 import Header from '../../Header.jsx'
 import logo from '../../images/MVCN.png';
+import Logout from '../Logout/logout.jsx';
 
 // In order to use react hooks like the `useCookies` hook, the must use functional components.
 // Functional components are the industry standard for the react components at the moment.
@@ -28,6 +29,7 @@ const Articles = () => {
         setArticles(data)
         setLoading(false)
     }
+    const loggedInUsername = localStorage.getItem('loggedInUsername') || '';
 
     const renderArticlesTable = (articles) => {
         return (
@@ -36,8 +38,8 @@ const Articles = () => {
                 <div className="row">
                    
                     <div className="col-8">
-                        
-                          
+
+                        <Logout />
                             <BigCard
                                 key={articles[0].title} // Assuming you want to display the first article
                                 title={articles[0].title}
@@ -94,7 +96,7 @@ const Articles = () => {
                                 />
                             ))}
                             <QuoteRandomizer />
-
+                            <h1>Logged in as {loggedInUsername}</h1>
                         </div>
                     </div> </div>
 
@@ -104,7 +106,7 @@ const Articles = () => {
 
     return (
         <div>
-            
+          
             {loading
                 ? <p><em>Loading...</em></p>
                 : renderArticlesTable(articles)}
