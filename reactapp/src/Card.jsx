@@ -10,7 +10,7 @@ function Card({ title, summary, published, topic, link}) {
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{summary}</p>
                     <p className="card-title">{published}</p>
-                    <p className="card-text">{topic}</p>
+                    <p className="card-title">{topic}</p>
                     
                     <a href={link}><p className="card-text">Link to article</p> </a>
                    

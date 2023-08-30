@@ -76,6 +76,7 @@ const Articles = () => {
                                     link={article.link}
                                     published={article.published}
                                     summary={article.summary}
+                                    topic={article.topic }
                                 />
                             ))}
                             <Weather /> <Carosel />
