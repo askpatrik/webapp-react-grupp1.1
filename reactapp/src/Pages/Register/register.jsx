@@ -25,9 +25,9 @@ const Register = () => {
         }
     };
 
-    // TODO: add styles
+
     return (
-        <div>
+        <div className="centered-container"> {/* Apply the new CSS class */}
             <h1>Register</h1>
             <form>
                 <div>
@@ -57,9 +57,13 @@ const Register = () => {
                 <button type="button" onClick={handleRegister}>
                     Register
                 </button>
+                <a className="register-link" href="/login">
+                    Already have an account? Log in
+                </a>
             </form>
         </div>
     );
+
 };
 
 export default Register;
