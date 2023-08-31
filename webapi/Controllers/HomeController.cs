@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Linq;
 using webapi.Models;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
-using System.Globalization;
-using Microsoft.Data.SqlClient;
 
 namespace webapi.Controllers
 {
@@ -29,14 +24,20 @@ namespace webapi.Controllers
         {
             // Get all articles from the database
             List<Article> articles = GetArticlesFromDatabase();
+            
+
 
             // Get all the unique topics from the articles, trimming any whitespace and filtering out empty strings
             // List<string> allTopics = articles.SelectMany(article => article.Topic.Split(',').Select(t => t.Trim())).Where(t => !string.IsNullOrWhiteSpace(t)).Distinct().ToList();
 
+
+
             if (!string.IsNullOrEmpty(topic) && topic != "All")
             {
+
                 articles = articles.Where(a => a.Topic.Contains(topic)).ToList();
             }
+        
 
             switch (sortBy)
             {
@@ -46,6 +47,17 @@ namespace webapi.Controllers
                 case "oldest":
                     articles = articles.OrderBy(a => a.Published).ToList();
                     break;
+            }
+
+            // Extract the first word from each topic
+            foreach (var article in articles)
+            {
+                
+                for (int i = 0; i < article.Topic.Count; i++)
+                {
+                    string[] topicWords = article.Topic[i].Split(' ');
+                    article.Topic[i] = topicWords[0]; // Get the first word
+                }
             }
 
             return Ok(articles); // Changed from View()
