@@ -1,7 +1,7 @@
 import React from 'react';
 import CSS from './App.css';
 
-function Card({ title, summary, published, topic, link}) {
+function Card({ title, summary, published, link}) {
     return (
         <div className="col-md-6">
             <div className="card mb-4 border-0">
@@ -10,7 +10,7 @@ function Card({ title, summary, published, topic, link}) {
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{summary}</p>
                     <p className="card-title">{published}</p>
-                    <p className="card-title">{topic}</p>
+                   
                     
                     <a href={link}><p className="card-text">Link to article</p> </a>
                    

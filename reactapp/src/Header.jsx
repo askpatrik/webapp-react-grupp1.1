@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
+import SelectsComponent from './Pages/Articles/components/select';
 
 function Header() {
     const [expandedTopic, setExpandedTopic] = useState(null);
@@ -19,6 +20,7 @@ function Header() {
 
     return (
         <header className="header">
+        <SelectsComponent />
             <ul className="topic-list">
                 {topics.map((topic) => (
                     <li

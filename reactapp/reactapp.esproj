@@ -11,6 +11,7 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="src\Pages\Articles\redux\" />
     <Folder Include="src\Pages\Login\" />
     <Folder Include="src\Pages\Logout\" />
     <Folder Include="src\Pages\Register\" />

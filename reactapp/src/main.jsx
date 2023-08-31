@@ -1,20 +1,64 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
+
+import Login from './pages/Login/login';
+import Articles from './pages/Articles/articles';
+import Register from './pages/Register/register';
+import PrivateRoute from './components/PrivateRoute';
+import { Provider } from 'react-redux';
+import store from './pages/Articles/redux/store';
+import Header from './Header'; // Import your Header component
+import Footer from './Footer'; // Import your Header component
 import Bootstrap from 'bootstrap/dist/css/bootstrap.min.css'
-import Articles from './Pages/Articles/Articles.jsx'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
+/**
+ * The main component of the app. It is the one defining the `CookieProvider` and the `Router`.
+ * The ´CookieProvider´ provides a centralised way of checking the cookies of the browser from any part of the app using the hook `useCookie()`
+ * The `Router` component provides a list of routes and defines which component must render on each route.
+ * E.g:
+ *    ```
+ *         <Routes>
+ *           <Route path="/login" element={<Login />} />
+ *           <Route path="/register" element={<Register />} />
+ *           <Route
+ *             path="/articles"
+ *             element={<PrivateRoute path="/articles"> <Articles /> </PrivateRoute>}
+ *             />
+ *         </Routes>
+ *     ```
+ *    When the user visit the page `HOST_ADDRESS:PORT/login` it will render the `Login` component.
+ *    The `PrivateRoute`component is a custom component defined in ./components/PrivateRoute.jsx 
+ *    used to verify that the session cookie exists before rendering the `Articles` component.
+ * 
+ * @returns {Component}
+ */
+const App = () => {
+    return (
+        <CookiesProvider>
+            <Provider store={store}>
+                <Router>
+                    <div>
+                        <Header /> {/* Your header component */}
+                        
+                        <Routes>
+                        
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route
+                                path="/articles"
+                                element={<PrivateRoute path="/articles"> <Articles /> </PrivateRoute>}
+                            />
+                            <Route path="/*" element={<Login />} />
+                        </Routes>
 
+                        <Footer /> {/* Your footer component */}
+                    </div>
+                  
+                </Router>
+            </Provider>
+        </CookiesProvider>
+    );
+};
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <Header />
-        <App />
-
-        <Footer />
-        
-  </React.StrictMode>,
-)
+// This is the entry point of the app. It creates the root of your application and it renders the React component `App` inside an HTML element identified with the id `root`.
+createRoot(document.getElementById('root')).render(<App />)
