@@ -66,7 +66,7 @@ namespace webapi.Controllers
         private List<Article> GetArticlesFromDatabase(bool ascending = true)
         {
             // Connection string for MySQL database
-            string connStr = "server=localhost;user=root;database=newsextractdb;port=3306;password=Ruzjeno1";
+            string connStr = "server=localhost;user=root;database=newsextractdb;port=3306;password=mrlucky21";
 
             // SQL query to retrieve data from database
             string sql = "SELECT title, summary, link, published, topic FROM news";

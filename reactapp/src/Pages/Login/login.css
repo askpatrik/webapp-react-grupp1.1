@@ -1,3 +1,4 @@
+/* login-styles.css */
 
 .centered-container {
     display: flex;
@@ -5,63 +6,105 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #181818; /* Darker background color */
+    color: #fff; /* Light text color */
+    position: relative;
+    overflow: hidden;
+
 }
 
-    .centered-container h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
+@keyframes cloudMove {
+    0% {
+        transform: translateX(0);
     }
 
-    .centered-container form {
-        width: 300px;
-        padding: 20px;
-        border: 1px solid #e1e1e1;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.centered-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adding text shadow */
+}
+
+.centered-container form {
+    width: 300px;
+    padding: 20px;
+    border: none; /* No border */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhancing box shadow */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+}
+
+.centered-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.centered-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+    .centered-container input:hover,
+    .centered-container input:focus {
+        background-color: rgba(255, 255, 255, 0.15); /* Darker background on hover/focus */
+        border-color: #fff; /* White border on hover/focus */
     }
 
-    .centered-container label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
+.centered-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #009688; /* Teal color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .centered-container button:hover {
+        background-color: #00796b; /* Darker teal on hover */
     }
 
-    .centered-container input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        font-size: 16px;
+.centered-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #009688; /* Teal color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .centered-container a:hover {
+        color: #00796b; /* Darker teal on hover */
+    }
+.logo-animation {
+    width: 150px; /* Adjust the width as needed */
+    position: absolute;
+    top: 50%;
+    right: -150px; /* Initial position outside the screen */
+    animation: slideInLogo 1s ease-in-out forwards; /* Animation duration and easing */
+}
+
+@keyframes slideInLogo {
+    0% {
+        right: -150px; /* Starting position */
     }
 
-    .centered-container button {
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
+    100% {
+        right: 20px; /* Final position, adjust as needed */
     }
-
-        .centered-container button:hover {
-            background-color: #0056b3;
-        }
-
-    .centered-container a {
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-        font-size: 14px;
-        color: #007bff;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-
-        .centered-container a:hover {
-            color: #0056b3;
-        }
+}
