@@ -1,0 +1,70 @@
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-bottom: 0px;
+}
+
+.topic-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.topic-item {
+    position: relative;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin: 0 0.5rem;
+    background-color: #333; /* Change the box color to #333 */
+    color: #fff; /* Change the font color to white */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add hover effect */
+}
+
+    .topic-item:hover {
+        background-color: #555; /* Change the background color on hover */
+    }
+
+.topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.arrow {
+    padding-left: 3px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+    .arrow.up {
+        transform: rotate(180deg);
+    }
+
+.topic-content {
+    display: flex;
+    align-content: center;
+    background-color: #444;
+    color: #fff;
+    padding: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+    .topic-content.show {
+        display: flex;
+        align-content: center;
+        opacity: 1;
+        visibility: visible;
+    }

@@ -10,7 +10,6 @@ import Carosel from '../../CommercialCarousel.jsx';
 import Weather from '../../WeatherForecast.jsx'
 import QuoteRandomizer from '../../QuoteRandomizer.jsx';
 import logo from '../../images/MVCN.png';
-import Logout from '../Logout/logout.jsx';
 
 const Articles = () => {
     const [articles, setArticles] = useState([])
@@ -44,8 +43,8 @@ const Articles = () => {
 
     const renderArticlesTable = () => {
         return (
-            <div className="outer-container">
-            <div className="app-container mt-3">
+           
+            <div className="app-container">
                 <div className="row">
                     <div className="col-8">                  
                         <BigCard
@@ -86,12 +85,11 @@ const Articles = () => {
                         );
                        
                             <QuoteRandomizer />
-                            <h1>Logged in as {loggedInUsername} </h1>
-                            <Logout />
+                        
                          
                         </div>
                     </div> </div>
-            </div></div>
+            </div>
         );
     }
 
