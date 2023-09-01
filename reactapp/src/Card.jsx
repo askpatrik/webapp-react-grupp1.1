@@ -3,7 +3,8 @@ import CSS from './App.css';
 
 function Card({ title, summary, published, link}) {
     return (
-        <div className="col-md-6">
+        <div className="col-md-4">
+       
             <div className="card mb-4 border-0">
           
                 <div className="card-body">

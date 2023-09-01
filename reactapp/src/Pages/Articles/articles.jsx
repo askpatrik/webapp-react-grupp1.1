@@ -17,11 +17,18 @@ const Articles = () => {
     const searchTopic = useSelector(selectedTopic);
     const sorting = useSelector(selectedSorting);
     const [loading, setLoading] = useState(true)
+    const [visibleArticles, setVisibleArticles] = useState(6);
+
 
 
     useEffect(() => {
         populateArticleData();
     }, [searchTopic, sorting])
+
+
+    const loadMoreArticles = () => {
+        setVisibleArticles(prevVisibleArticles => prevVisibleArticles + 6);
+    };
 
     const populateArticleData = async () => {
         setLoading(true)
@@ -37,7 +44,8 @@ const Articles = () => {
 
     const renderArticlesTable = () => {
         return (
-            <div className="app-container">
+            <div className="outer-container">
+            <div className="app-container mt-3">
                 <div className="row">
                     <div className="col-8">                  
                         <BigCard
@@ -57,43 +65,33 @@ const Articles = () => {
 
 
                 <div className="row">
-                    <div className="col-8">
+                    <div className="col-12">
                         <div className="row">
 
 
-                            {articles.map((article) => (
+                            {articles.slice(1, visibleArticles+1).map((article, index) => (
                                 <Card
-                                    key={article.title}
+                                    key={index}
                                     title={article.title}
                                     link={article.link}
                                     published={article.published}
                                     summary={article.summary}
                                     topic={article.topic}
-
-
                                 />
                             ))}
-                            <Weather /> <Carosel />
-                        </div>
-                    </div>
-                    <div className="col-4">
-                        <div className="row">
-                            {articles.map(article => (
-                                <Card
-                                    key={article.title}
-                                    title={article.title}
-                                    link={article.link}
-                                    published={article.published}
-                                    summary={article.summary}
-                                />
-                            ))}
+                            {visibleArticles < articles.length && (
+                                <button onClick={loadMoreArticles}>Load More</button>
+                            )}
+                       
+                        );
+                       
                             <QuoteRandomizer />
                             <h1>Logged in as {loggedInUsername} </h1>
                             <Logout />
                          
                         </div>
                     </div> </div>
-            </div>
+            </div></div>
         );
     }
 
