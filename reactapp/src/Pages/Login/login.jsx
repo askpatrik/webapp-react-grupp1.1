@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import './login.css';
+import logo from '../../Images/MVCS.png';
 
 //import App from 'main.jsx'; 
 
@@ -29,7 +30,7 @@ const Login = () => {
             setCookie('session', 'test', { path: '/' });
             localStorage.setItem("token", data.token)
             localStorage.setItem('loggedInUsername', username);
-            navigate('/articles' );
+            navigate('/articles');
         } else {
             alert('Wrong credentials.');
         }
@@ -40,6 +41,7 @@ const Login = () => {
     return (
         <div className="centered-container">
             <h1>Login</h1>
+            <img src={logo} alt="Logo" className="logo-animation" /> { }
             <form>
                 <div>
                     <label>Username:</label>
