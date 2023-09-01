@@ -1,5 +1,10 @@
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setTopic, setSorting, selectedSorting, selectedTopic } from '../redux/topicSortSlice';
+import './select.css';
+import Logout from '../../Logout/logout.jsx';
+
+
 
 const SelectsComponent = () => {
     const searchTopic = useSelector(selectedTopic);
@@ -11,6 +16,8 @@ const SelectsComponent = () => {
         dispatch(setTopic(selectedTopic));
     };
 
+    const loggedInUsername = localStorage.getItem('loggedInUsername') || '';
+
     const handleSortingChange = (e) => {
         const selectedSorting = e.target.value;
         dispatch(setSorting(selectedSorting));
@@ -19,13 +26,12 @@ const SelectsComponent = () => {
     return (
         <div>
             <div>
-                <label htmlFor="topic">Select a topic:</label>
                 <div>
                     {
                         topics.sort().map((t, i) => (
                             <button
                                 key={i}
-                                className={searchTopic === t ? 'selected' : ''}
+                                className={`topic-item ${searchTopic === t ? 'selected' : ''}`}
                                 onClick={() => handleTopicChange(t)}
                             >
                                 {t}
@@ -33,6 +39,10 @@ const SelectsComponent = () => {
                         ))
                     }
                 </div>
+                <h1>Logged in as {loggedInUsername} </h1>
+                <Logout />
+
+            
             </div>
 
             <label htmlFor="sorting">Sort:</label>
