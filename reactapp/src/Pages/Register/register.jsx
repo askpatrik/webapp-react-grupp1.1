@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../Images/MVCS.png';
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -29,6 +30,7 @@ const Register = () => {
     return (
         <div className="centered-container"> {/* Apply the new CSS class */}
             <h1>Register</h1>
+            <img src={logo} alt="Logo" className="logo-animation" /> { }
             <form>
                 <div>
                     <label>Username:</label>

@@ -1,25 +1,28 @@
-
-
 .centered-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #181818;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 
     .centered-container h1 {
-        font-size: 24px;
+        font-size: 32px;
         margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .centered-container form {
         width: 300px;
         padding: 20px;
-        border: 1px solid #e1e1e1;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.7);
     }
 
     .centered-container label {
@@ -30,25 +33,48 @@
 
     .centered-container input {
         width: 100%;
-        padding: 10px;
+        padding: 12px;
         margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
         font-size: 16px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
     }
+
+        .centered-container input:hover,
+        .centered-container input:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+        }
 
     .centered-container button {
         width: 100%;
-        padding: 10px;
-        background-color: #007bff;
+        padding: 12px;
+        background-color: #009688;
         color: #fff;
         border: none;
-        border-radius: 3px;
+        border-radius: 5px;
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.2s ease;
     }
 
         .centered-container button:hover {
-            background-color: #0056b3;
+            background-color: #00796b;
+        }
+
+    .centered-container a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #009688;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+        .centered-container a:hover {
+            color: #00796b;
         }
