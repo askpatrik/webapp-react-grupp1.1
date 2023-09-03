@@ -25,6 +25,7 @@
     background-color: #333; /* Change the box color to #333 */
     color: #fff; /* Change the font color to white */
     transition: background-color 0.3s ease, color 0.3s ease; /* Add hover effect */
+    border:none;
 }
 
     .topic-item:hover {
@@ -68,3 +69,4 @@
         opacity: 1;
         visibility: visible;
     }
+

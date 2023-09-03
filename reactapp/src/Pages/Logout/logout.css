@@ -1,0 +1,25 @@
+/* Style for the grey background */
+
+
+/* Style for the logout button */
+.logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #009688; /* green color for the button */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+    .logout-button:hover {
+        background-color: #00796b; /* Darker green on hover */
+    }
+
+/* Optional: Add a subtle drop shadow for a polished look */
+.logout-button {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
