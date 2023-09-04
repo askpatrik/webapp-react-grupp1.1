@@ -6,6 +6,12 @@
     background-color: white;
 }
 
+/* Add this CSS to your stylesheet */
+a.card-link {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the text color from its parent */
+}
+
 
 .card-body {
   
@@ -70,6 +76,10 @@
     align-items: center; /* Center horizontally */
     overflow: hidden;
 }
+.big-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
 .big-card-container {
     display: flex;
    
@@ -96,6 +106,12 @@
     font-size: 29px;
     color: #666;
 }
+/* Add this CSS to your stylesheet */
+a.big-card-link {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the text color from its parent */
+}
+
 .banner {
  
  

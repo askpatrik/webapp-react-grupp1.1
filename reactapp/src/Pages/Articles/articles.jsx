@@ -53,6 +53,7 @@ const Articles = () => {
                             link={articles[0].link}
                             published={articles[0].published}
                             summary={articles[0].summary}
+                          
                         />
                     </div>
                     <div className="col-4">

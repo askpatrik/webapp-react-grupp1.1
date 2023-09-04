@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using webapi.Models;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Html;
 
 namespace webapi.Controllers
 {
@@ -24,21 +25,12 @@ namespace webapi.Controllers
         {
             // Get all articles from the database
             List<Article> articles = GetArticlesFromDatabase();
-            
-
-
-            // Get all the unique topics from the articles, trimming any whitespace and filtering out empty strings
-            // List<string> allTopics = articles.SelectMany(article => article.Topic.Split(',').Select(t => t.Trim())).Where(t => !string.IsNullOrWhiteSpace(t)).Distinct().ToList();
-
-
 
             if (!string.IsNullOrEmpty(topic) && topic != "All")
             {
-
                 articles = articles.Where(a => a.Topic.Contains(topic)).ToList();
             }
         
-
             switch (sortBy)
             {
                 case "newest":
@@ -49,24 +41,55 @@ namespace webapi.Controllers
                     break;
             }
 
-            // Extract the first word from each topic
+           
+
+
+
+            //Ta bort Topic dubletter
             foreach (var article in articles)
             {
-                
-                for (int i = 0; i < article.Topic.Count; i++)
-                {
-                    string[] topicWords = article.Topic[i].Split(' ');
-                    article.Topic[i] = topicWords[0]; // Get the first word
-                }
+                article.Topic = article.Topic
+                    .Select(topic => topic.Split(' ')[0]) 
+                    .Distinct() 
+                    .ToList(); 
             }
 
+            //Formattera bort HTML taggar
+            foreach (var article in articles)
+            {
+
+                if (article.Summary.Contains("<p>") || article.Summary.Contains("</p>"))
+                {
+                    string newString = article.Summary.Replace("<p>", "").Replace("</p>", "");
+                    article.Summary = newString;
+                }
+                if (article.Summary.Contains("<img src"))
+                {
+                    int startIndex = article.Summary.IndexOf("<img src");
+                    int endIndex = article.Summary.IndexOf(">", startIndex);
+
+
+                    string imgTag = article.Summary.Substring(startIndex, endIndex - startIndex + 1);
+                    article.Summary = article.Summary.Remove(startIndex, imgTag.Length);
+
+                }
+                if (article.Summary.Contains("<a href"))
+                {
+                    int startIndex = article.Summary.IndexOf("<a href");
+                    int endIndex = article.Summary.IndexOf("a>");
+
+                    string imgTag = article.Summary.Substring(startIndex, endIndex - startIndex + 2);
+                    article.Summary = article.Summary.Remove(startIndex, imgTag.Length);
+
+                }
+            }
             return Ok(articles); // Changed from View()
         }
 
         private List<Article> GetArticlesFromDatabase(bool ascending = true)
         {
             // Connection string for MySQL database
-            string connStr = "server=localhost;user=root;database=newsextractdb;port=3306;password=mrlucky21";
+            string connStr = "server=localhost;user=root;database=newsextractdb;port=3306;password=Ruzjeno1";
 
             // SQL query to retrieve data from database
             string sql = "SELECT title, summary, link, published, topic FROM news";
