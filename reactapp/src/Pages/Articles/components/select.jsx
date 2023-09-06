@@ -1,6 +1,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setTopic, setSorting, selectedSorting, selectedTopic } from '../redux/topicSortSlice';
+import { selectedUsername } from '../redux/userSlice';
 import './select.css';
 import Logout from '../../Logout/logout.jsx';
 
@@ -9,6 +10,10 @@ import Logout from '../../Logout/logout.jsx';
 const SelectsComponent = () => {
     const searchTopic = useSelector(selectedTopic);
     const sorting = useSelector(selectedSorting);
+    console.log(sorting)
+    console.log(searchTopic)
+    console.log(useSelector(selectedUsername))
+    const loggedInUsername = useSelector(selectedUsername)
     const dispatch = useDispatch();
     const topics = ["All", "Politik", "Utbildning", "Religion", "Miljo", "Ekonomi", "LivsstilFritt", "SamhalleKonflikter", "Halsa", "Idrott", "VetenskapTeknik"]
 
@@ -16,7 +21,8 @@ const SelectsComponent = () => {
         dispatch(setTopic(selectedTopic));
     };
 
-    const loggedInUsername = localStorage.getItem('loggedInUsername') || '';
+    //const loggedInUsername = localStorage.getItem('loggedInUsername') || '';
+    const isLoggedIn = loggedInUsername !== '';
 
     const handleSortingChange = (e) => {
         const selectedSorting = e.target.value;
@@ -26,7 +32,7 @@ const SelectsComponent = () => {
     return (
         <div>
             <div>
-                <div><h5>Logged in as {loggedInUsername} </h5>
+                <div>{isLoggedIn && <h5>Logged in as {loggedInUsername} </h5>}
                     
                     {
                         topics.sort().map((t, i) => (
@@ -39,16 +45,9 @@ const SelectsComponent = () => {
                             </button>
 
                         ))
-
                     }
-
-                    <Logout />
-                    
-                    
-                </div>
-                
-
-            
+                    {isLoggedIn && <Logout />}                   
+                </div>                
             </div>
 
             <label htmlFor="sorting">Sort:</label>
