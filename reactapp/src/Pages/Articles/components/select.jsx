@@ -10,9 +10,6 @@ import Logout from '../../Logout/logout.jsx';
 const SelectsComponent = () => {
     const searchTopic = useSelector(selectedTopic);
     const sorting = useSelector(selectedSorting);
-    console.log(sorting)
-    console.log(searchTopic)
-    console.log(useSelector(selectedUsername))
     const loggedInUsername = useSelector(selectedUsername)
     const dispatch = useDispatch();
     const topics = ["All", "Politik", "Utbildning", "Religion", "Miljo", "Ekonomi", "LivsstilFritt", "SamhalleKonflikter", "Halsa", "Idrott", "VetenskapTeknik"]
@@ -31,8 +28,10 @@ const SelectsComponent = () => {
 
     return (
         <div>
+            {isLoggedIn &&
+                <>
             <div>
-                <div>{isLoggedIn && <h5>Logged in as {loggedInUsername} </h5>}
+                <div> <h5>Logged in as {loggedInUsername} </h5>
                     
                     {
                         topics.sort().map((t, i) => (
@@ -46,7 +45,7 @@ const SelectsComponent = () => {
 
                         ))
                     }
-                    {isLoggedIn && <Logout />}                   
+                    <Logout />                  
                 </div>                
             </div>
 
@@ -55,7 +54,7 @@ const SelectsComponent = () => {
                 <option value="newest">Newest</option>
                 <option value="oldest">Oldest</option>
             </select>
-            
+            </>}
         </div>
     );
 };
