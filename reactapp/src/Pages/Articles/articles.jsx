@@ -25,6 +25,12 @@ const Articles = () => {
     }, [searchTopic, sorting])
 
 
+    const removeArticles = () => {
+        setVisibleArticles(prevVisibleArticles =>
+            prevVisibleArticles - 10 >= 0 ? prevVisibleArticles - 10 : 0
+        );
+    };
+
     const loadMoreArticles = () => {
         setVisibleArticles(prevVisibleArticles => prevVisibleArticles + 6);
     };
@@ -79,13 +85,11 @@ const Articles = () => {
                                     topic={article.topic}
                                 />
                             ))}
-                            {visibleArticles < articles.length && (
-                                <button onClick={loadMoreArticles}>Load More</button>
-                            )}
+                         
                        
                         );
                        
-                            <QuoteRandomizer />
+                          
                         
                          
                         </div>
@@ -97,12 +101,28 @@ const Articles = () => {
 
     return (
         <div>
-          
-            {loading
-                ? <p><em>Loading...</em></p>
-                : renderArticlesTable()}
-        </div >
+            {loading ? (
+                <p><em>Loading...</em></p>
+            ) : (
+                <>
+                    {renderArticlesTable()}
+                    <div className="row">
+                        <div className="centered-buttons">
+                            <div className="col">
+                                {visibleArticles < articles.length && (
+                                    <button type="button" onClick={loadMoreArticles} className="logout-button" style={{ marginRight: '10px' }}> Show more articles </button>
+                                )}
+                                {visibleArticles >= 10 && (
+                                    <button type="button" onClick={removeArticles} className="logout-button" style={{ marginRight: '10px' }}> Show fewer articles </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )}
+        </div>
     );
+
 }
 
 export default Articles;
