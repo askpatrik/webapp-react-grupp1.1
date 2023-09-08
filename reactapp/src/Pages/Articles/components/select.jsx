@@ -28,8 +28,6 @@ const SelectsComponent = () => {
 
     return (
         <div>
-            {isLoggedIn &&
-                <>
             <div>
                 <div> <h5>Logged in as {loggedInUsername} </h5>
                     
@@ -54,7 +52,6 @@ const SelectsComponent = () => {
                 <option value="newest">Newest</option>
                 <option value="oldest">Oldest</option>
             </select>
-            </>}
         </div>
     );
 };

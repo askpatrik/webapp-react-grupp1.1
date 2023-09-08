@@ -5,6 +5,7 @@ import './login.css';
 import logo from '../../Images/MVCS.png';
 import { useDispatch } from 'react-redux';
 import { setLoggedInUsername } from '../Articles/redux/userSlice';
+import { useEffect } from 'react';
 //import App from 'main.jsx'; 
 
 const Login = () => {
@@ -13,7 +14,6 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [, setCookie] = useCookies(['session']);
-
 
 
     const handleLogin = async () => {

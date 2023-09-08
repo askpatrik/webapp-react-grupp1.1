@@ -7,10 +7,12 @@ import Articles from './pages/Articles/articles';
 import Register from './pages/Register/register';
 import PrivateRoute from './components/PrivateRoute';
 import { Provider } from 'react-redux';
-import store from './pages/Articles/redux/store';
 import Header from './Header'; // Import your Header component
 import Footer from './Footer'; // Import your Header component
+import { persistor, store } from './Pages/Articles/redux/store';
+import { PersistGate } from 'redux-persist/integration/react'
 import Bootstrap from 'bootstrap/dist/css/bootstrap.min.css'
+
 /**
  * The main component of the app. It is the one defining the `CookieProvider` and the `Router`.
  * The ´CookieProvider´ provides a centralised way of checking the cookies of the browser from any part of the app using the hook `useCookie()`
@@ -36,10 +38,9 @@ const App = () => {
     return (
         <CookiesProvider>
             <Provider store={store}>
+                <PersistGate loading={null} persistor={ persistor }>
                 <Router>
-                    <div>
-                        <Header /> {/* Your header component */}
-                        
+                    <div>                        
                         <Routes>
                         
                             <Route path="/login" element={<Login />} />
@@ -54,7 +55,8 @@ const App = () => {
                         <Footer /> {/* Your footer component */}
                     </div>
                   
-                </Router>
+                    </Router>
+                </PersistGate>
             </Provider>
         </CookiesProvider>
     );
