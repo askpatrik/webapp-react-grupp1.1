@@ -49,26 +49,29 @@ const Articles = () => {
         return (
            <>
             <Header /> {/* Your header component */}
-            <div className="app-container">
-                <div className="row">
-                     <div className="col-8">     
+                <div className="app-container mt-4">
+            
+                    <div className="row">
+                        <div className="col-8">
                             {articles.length > 0 ?
                                 <BigCard
-                                    key={articles[0].title} // Assuming you want to display the first article
+                                    key={articles[0].title}
                                     title={articles[0].title}
                                     link={articles[0].link}
                                     published={articles[0].published}
                                     summary={articles[0].summary}
-
+                                    label="Senaste Nytt" // Add the label prop here
                                 /> : <></>}
-                    </div>
+                        </div>
+
                     <div className="col-4">
                         <div className="card-container">
-                            <img className="resize" src={logo} alt="Logo" />
+                                <img className="resize" src={logo} alt="Logo" />
+                         
                         </div>
                     </div>
                 </div>
-
+                 
 
                 <div className="row">
                     <div className="col-12">
@@ -87,7 +90,7 @@ const Articles = () => {
                             ))}
                          
                        
-                        );
+                        
                        
                           
                         
@@ -107,7 +110,7 @@ const Articles = () => {
                 <>
                     {renderArticlesTable()}
                     <div className="row">
-                        <div className="centered-buttons">
+                        <div className="centered-buttons mb-4">
                             <div className="col">
                                 {visibleArticles < articles.length && (
                                     <button type="button" onClick={loadMoreArticles} className="logout-button" style={{ marginRight: '10px' }}> Show more articles </button>
