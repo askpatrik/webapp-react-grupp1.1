@@ -7,7 +7,7 @@ import BigCard from '../../MainArticleCard.jsx';
 import CSS from '../../App.css';
 import CSS2 from '../../index.css';
 import Carosel from '../../CommercialCarousel.jsx';
-import Weather from '../../WeatherForecast.jsx'
+import Header from '../../Header.jsx'
 import QuoteRandomizer from '../../QuoteRandomizer.jsx';
 import logo from '../../images/MVCN.png';
 
@@ -37,24 +37,24 @@ const Articles = () => {
         setArticles(data)
         setLoading(false)
     }
-    const loggedInUsername = localStorage.getItem('loggedInUsername') || '';
-
   
 
     const renderArticlesTable = () => {
         return (
-           
+           <>
+            <Header /> {/* Your header component */}
             <div className="app-container">
                 <div className="row">
-                    <div className="col-8">                  
-                        <BigCard
-                            key={articles[0].title} // Assuming you want to display the first article
-                            title={articles[0].title}
-                            link={articles[0].link}
-                            published={articles[0].published}
-                            summary={articles[0].summary}
-                          
-                        />
+                     <div className="col-8">     
+                            {articles.length > 0 ?
+                                <BigCard
+                                    key={articles[0].title} // Assuming you want to display the first article
+                                    title={articles[0].title}
+                                    link={articles[0].link}
+                                    published={articles[0].published}
+                                    summary={articles[0].summary}
+
+                                /> : <></>}
                     </div>
                     <div className="col-4">
                         <div className="card-container">
@@ -90,7 +90,8 @@ const Articles = () => {
                          
                         </div>
                     </div> </div>
-            </div>
+                </div>
+            </>
         );
     }
 
