@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import './login.css';
 import logo from '../../Images/MVCS.png';
-
+import { useDispatch } from 'react-redux';
+import { setLoggedInUsername } from '../Articles/redux/userSlice';
 //import App from 'main.jsx'; 
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [, setCookie] = useCookies(['session']);
 
 
@@ -29,7 +31,8 @@ const Login = () => {
         if (response.status === 200) {
             setCookie('session', 'test', { path: '/' });
             localStorage.setItem("token", data.token)
-            localStorage.setItem('loggedInUsername', username);
+            dispatch(setLoggedInUsername(username))
+            //localStorage.setItem('loggedInUsername', username);
             navigate('/articles');
         } else {
             alert('Wrong credentials.');

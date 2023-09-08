@@ -1,11 +1,15 @@
 // store.js
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import topicSortReducer from './topicSortSlice';
+import userReducer from './userSlice';
+
+const rootReducer = combineReducers({
+    topicSort: topicSortReducer,
+    user: userReducer,
+})
 
 const store = configureStore({
-    reducer: {
-        topicSort: topicSortReducer,
-    },
+    reducer: rootReducer,
 });
 
 export default store;
