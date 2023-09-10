@@ -44,7 +44,6 @@ const Articles = () => {
         setLoading(false)
     }
   
-
     const renderArticlesTable = () => {
         return (
            <>
@@ -63,9 +62,11 @@ const Articles = () => {
                                     label="Senaste Nytt" // Add the label prop here
                                 /> : <></>}
                         </div>
+                        <div className="col-4">
 
-                    <div className="col-4">
-                        <div className="card-container">
+                            <Carosel />
+
+                            <div className="card-container">
                                 <img className="resize" src={logo} alt="Logo" />
                          
                         </div>
