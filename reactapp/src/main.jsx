@@ -52,7 +52,7 @@ const App = () => {
                             <Route path="/*" element={<Login />} />
                         </Routes>
 
-                        <Footer /> {/* Your footer component */}
+                        <Footer /> 
                     </div>
                   
                     </Router>

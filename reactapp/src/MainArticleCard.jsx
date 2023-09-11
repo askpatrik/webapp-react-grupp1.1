@@ -1,10 +1,14 @@
 
 import React from 'react';
 import CSS from './App.css';
+import Weather from './WeatherForecast';
+import Ads from './CommercialCarousel';
 
 function BigCard({ title, summary, published, link, label }) {
     return (
+
         <a href={link} className="big-card-link">
+            <Weather />
             <div className="big-card-container">
                 <div className="big-card">
                     <div className="card-body">
@@ -14,6 +18,7 @@ function BigCard({ title, summary, published, link, label }) {
                     </div>
                 </div>
             </div>
+            
         </a>
     );
 }

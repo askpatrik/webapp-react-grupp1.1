@@ -1,10 +1,14 @@
 .header {
-    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #181818;
     color: #fff;
     text-align: center;
     padding: 1rem;
     margin-bottom: 1rem;
     margin-bottom: 0px;
+    padding-left: 55px;
 }
 
 .topic-list {
@@ -14,6 +18,11 @@
     justify-content: space-around;
     font-size: larger;
     font-weight: 700;
+    flex-grow: 1; /* Add this line */
+}
+.topics-container {
+    display: flex;
+    align-items: center;
 }
 
 .topic-item {
@@ -22,7 +31,7 @@
     padding: 0.75rem 1rem;
     border-radius: 10px;
     margin: 0 0.5rem;
-    background-color: #333; /* Change the box color to #333 */
+    background-color: #181818; /* Change the box color to #333 */
     color: #fff; /* Change the font color to white */
     transition: background-color 0.3s ease, color 0.3s ease; /* Add hover effect */
     border:none;
@@ -39,34 +48,37 @@
     margin-bottom: 0.5rem;
 }
 
-.arrow {
-    padding-left: 3px;
-    font-size: 12px;
-    transition: transform 0.3s ease;
+.dropdown-wrapper {
+    display: inline;
+    position: relative;
 }
 
-    .arrow.up {
-        transform: rotate(180deg);
-    }
+.dropdown-content {
+    position: absolute; /* Add this line to position it absolutely */
+    top: 100%; /* Position it below the parent elemesnt */
+    left: 30px; /* Adjust left position if needed */
 
-.topic-content {
-    display: flex;
-    align-content: center;
-    background-color: #444;
-    color: #fff;
-    padding: 1rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding-top: 3px;
+
+}
+.logged-in-button{
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #009688; /* Green color for the button */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle drop shadow for a polished look */
 }
 
-    .topic-content.show {
-        display: flex;
-        align-content: center;
-        opacity: 1;
-        visibility: visible;
+    .logged-in-button:hover{
+        background-color: #00796b; /* Darker green on hover */
     }
-
+.logged-in-button {
+    position: relative;
+    left: 34rem; /* Adjust the right position as needed */
+}
