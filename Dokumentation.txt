@@ -1,0 +1,95 @@
+Här är en steg-för-steg beskrivning av hur Headern och functionerna i fungerar:
+
+1. Import av nödvändiga bibliotek och komponenter:
+   - Koden börjar med att importera React, useState, useDispatch, useSelector, och olika Redux-actions och komponenter.
+
+2. Skapa en funktionell komponent `SelectsComponent`:
+   - En funktionell komponent med namnet `SelectsComponent` skapas.
+
+3. Använd Redux `useSelector` för att hämta data från Redux-store:
+   - `useSelector` används för att hämta värden från Redux store, såsom `selectedTopic`, `selectedSorting`, och `selectedUsername`.
+
+4. Skapa och initiera lokal state med `useState`:
+   - Lokal state skapas och används för att hantera vissa komponentinteraktioner, t.ex. att visa eller dölja dropdown-menyer.
+
+5. Hantera ändringar i ämnesvalet:
+   - `handleTopicChange`-funktionen används för att skicka en Redux-action (`setTopic`) när användaren väljer ett ämne.
+
+6. Hantera ändringar i sorteringsalternativet:
+   - `handleSortingChange`-funktionen används för att skicka en Redux-action (`setSorting`) när användaren väljer ett sorteringsalternativ.
+
+7. Skapa knappar för ämnen:
+   - En lista med ämnen (`topics`) definieras och mappas över för att skapa knappar för varje ämne. Knapparna har även en `onClick`-hanterare som anropar `handleTopicChange` vid klick.
+
+8. Byt visning och flexriktning när "More" klickas:
+   - `toggleMoreDropdown`-funktionen används för att ändra visningen och flexriktningen när användaren klickar på "More" knappen.
+
+9. Toggle användardropdown:
+   - `toggleDropdown`-funktionen används för att visa/dölja användardropdownen när användaren klickar på användarnamnsknappen.
+
+10. Returnera JSX för komponenten:
+    - JSX-kod returneras och representerar den grafiska gränssnittet för komponenten.
+    - En rubrik (`<div className="header">`) med sorteringsalternativ och ämnesknappar renderas.
+    - En användarknapp och en dropdown för användaralternativ renderas också.
+
+11. Styling med CSS:
+    - Komponenten har en separat CSS-fil (`select.css`) som används för att styla elementen.
+    - CSS-klasser såsom `.header`, `.topics-container`, `.topic-item`, `.more-button`, `.dropdown-wrapper`, och `.logged-in-button` används för att styra utseendet och layouten.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Så här gick det till att bygga footern.
+
+1. Importera nödvändiga bibliotek och komponenter:
+   - Koden börjar med att importera React och några andra komponenter och resurser, inklusive CSS-stilar, en bild (`Bild`), en slumpmässig citatgenerator (`QuoteRandomizer`).
+
+2. Skapa en funktionell komponent `Footer`:
+   - En funktionell komponent med namnet `Footer` definieras.
+
+3. Rendera JSX för komponenten:
+   - Komponenten returnerar JSX-kod som representerar fotern av webbplatsen.
+   - Fotern är innesluten i en `<footer>`-tagg med en CSS-klass `footer`.
+
+4. Slumpmässiga citat i fotern:
+   - En `<QuoteRandomizer />`-komponent används för att slumpa och visa citat i fotern. Detta kan vara ett dynamiskt eller varierande meddelande varje gång sidan laddas om.
+
+5. Foterns innehåll:
+   - Inuti `<div className="footer-content">` finns innehållet i fotern.
+   - En bild (`<img>`) med källan `Bild` används för att visa en logotyp (MVC Logo) i fotern.
+   - En copyright-text (`<p>`) visas som säger "© 2023 Your Website. All rights reserved. Made by Patrik and Elia".
+
+6. Styling med CSS:
+   - Komponenten har en separat CSS-fil (`Footer.css`) som används för att styla elementen.
+   - CSS-klasser såsom `.footer`, `.footer-content`, och `.footer-logo` används för att styra utseendet och layouten.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+React
+
+Articles.jsx
+ -Renderar artiklar utifrån ämne och sortering. Använder hooken useState för att lagra artiklar, söka efter topics, sortera samt för funktionen visa eller dölj artiklar.
+ -populateArticleData används fetch funktion för att skicka en HTTP GET request till URL av API endpointen. Skickar här med auktoriserings-header med JWT från local storage. 
+ -quoteRandomizer, weatherAPI och AdCarosel använder alla useState på olika sätt för dess funktionalitet och importeras i artikelpagen. Fritt att placera de var man vill. 
+ -artiklarna renderas i ett gridsystem byggt genom bootstrap, med rows, columns och cards. 
+
+Login.jsx
+ -denna komponenten är en inloggningssida där användaren kan ange sitt användanamn och lösenord. När man klickar login, skickas en förfrågan till autentiserings-API, och om inloggning lyckas omdirigeras användaren till /articles. 
+ -useState för användarnamn och lösenord
+- handleLogin funktionen är metoden som körs när användaren försöker logga in. Här används fetch för HTTP Post till Autentiserings-api (authenticate/login) med username och lösenord. Om förfrågan lyckas skapas en sessioncookie och en autentiseringstoken webblagret. 
+
+Main.jsx
+ - huvudkomponenten i appen som hanterar navigeringen och autentiseringen. PrivateRoute.jsx är en hjälpkomponent för att säkerställa att användaren är inloggad innan de får åtkomst till /articles. Om det inte finns någon sessioncookie eller token, omdirigeras användaren till inloggningssidan. Således upprättas skyddade rutter här. 
+
+
+Backend
+
+HomeController
+ - C# controller med [Authorize] som ger åtkomst endast till inloggade användare. [APIcontroller] innebär att controllern är avsedd att hantera HTTP-requests och returnera data i JSON format.
+ - GetArticlesFromDataBase hämtar artiklarna från MySQL databa. Skapar en anslutningssträng, utgör en SQl fråga för NEWS och skapar en lista av artiklar utifrån hämtad data. 
+- en del formattering görs här för att artiklarna ska visas på ett användarvänligt sätt.
+- härifrån Articles.jsx fetchar data för artiklarna.
+
+AutenticateController
+ - Controller som hanterar autentisering och skapar JWT tokens. 
+ - [Route("login")] med en metod som tar emot POST -förfrågan med användaruppgifter. Den försöker hitta användaren med angivet användarnamn i databasen. Om användaren hittas, genereras en JWT token. 
+ - [Route("register")] tar emot POST förfrågan med användaruppgifter. Om username redan finns, returneras en konfliktstatus. Om det är unikt, skapas en IdentityUser med de angivna användaruppgifterna. Användaren skapas i databasen med säkerhetsstämpel och lösenordet krypteras.
